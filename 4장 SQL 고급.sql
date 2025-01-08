@@ -5,7 +5,7 @@
 # 실습 4-1
 CREATE TABLE Member (
 	`uid` varchar(10) primary key,
-    `name`member varchar(10) not null,
+    `name` varchar(10) not null,
     `hp` char(13) unique not null,
     `pos` varchar(10) not null,
     `dep` int,
