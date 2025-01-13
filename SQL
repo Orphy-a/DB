@@ -1,0 +1,8 @@
+# 실습 1-1
+create database `shop`;
+create user 'shop`@`%' identified by '1234';
+grant all privileges on Shop. * to 'shop'@'%';
+flush privileges;
+
+
+# 실습 1-2
