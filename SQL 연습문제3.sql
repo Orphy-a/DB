@@ -94,17 +94,19 @@ update `register` set `regmidscore` = 28, `regfinalscore` = 58 where `regstdno` 
 select * from `register`;
 
 
+    
 #실습 3-10
 update `register` 
 set `regtotalscore` = `regmidscore` + `regfinalscore`, 
 	`reggrade` = if(`regtotalscore`>=90, 'A', 
-					`regtotalscore`>=80, 'B',
-                    `regtotalscore`>=70, 'C',
-                    `regtotalscore`>=60, 'D', 'F');
+				if(`regtotalscore`>=80, 'B', 
+				if(`regtotalscore`>=70, 'C', 
+                if(`regtotalscore`>=60, 'D', 'F'))));
 
+select * from `register`;
 
 #실습 3-11
-select * from `register` order by `retotalscore` desc;
+select * from `register` order by `regtotalscore` desc;
 
 
 
@@ -131,9 +133,11 @@ select * from `student` where `stdaddress` like '부산시%';
 
 
 #실습 3-18
-SELECT * FROM `student` AS a 
-join `register` AS b 
-ON a.stdno = b.regstdno;
+select *
+from `student` as a
+left join `register` as b
+on a.stdno = b.regstdno
+order by a.stdyear desc;
 
 #실습 3-19
 select a.stdno, a.stdname, b.reglecno, b.regmidscore, b.regfinalscore, b.regtotalscore, b.reggrade
@@ -202,17 +206,69 @@ from `student` as a
 join `register` as b
 on a.stdNo = b.regStdNo
 join `lecture` as c
-on b.regstdno = c.lecno;
+on b.reglecno = c.lecno;
 
 
 
 #실습 3-27
+SELECT 
+	`stdNo`,
+	`stdName`,
+	`lecNo`,
+	`lecName`,
+	`regMidScore`,
+	`regFinalScore`,
+	`regTotalScore`,
+	`regGrade`
+FROM `Student` AS a
+join `register` as b
+on a.stdno = b.regstdno
+join `lecture` as c
+on b.reglecno = c.lecno;
 
+
+select * from `register`;
+select * from `student`;
+select * from `lecture`;
 
 
 #실습 3-28
+select
+    `stdNo`,
+	`stdName`,
+	`lecName`,
+	`regTotalScore`,
+	`regGrade`
+FROM `Student` AS a
+join `register` as b
+on a.stdno = b.regstdno
+join `lecture` as c
+on b.reglecno = c.lecno
+having b.reggrade = 'F';
+
+
 
 #실습 3-29
+select 
+	*
+	
+FROM `Student` AS a
+join `register` as b
+on a.stdno = b.regstdno
+left join `lecture` as c
+on b.reglecno = c.lecno;
+group by a.stdname;
+sum(if(`reggrade` = 'F', `leccredit` = 0, `leccredit`)) AS `이수학점`	
 
 #실습 3-30
-
+select 
+	`stdno`,
+    `stdname`,
+    group_concat(`lecname`) as '신청과목',
+    group_concat(if(`regtotalscore`>=60, `lecname`, null)) as '이수과목'
+from `student` as a
+join `register` as b
+on a.stdno = b.regstdno
+join `lecture` as c
+on b.reglecno = c.lecno
+group by a.stdname;
