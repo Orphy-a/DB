@@ -1,4 +1,4 @@
-create database `bank`;
+`user``user``user`user1user1create database `bank`;
 create user 'bank'@'%' identified by '1234';
 grant all privileges on bank.* to `bank`@`%`;
 flush privileges;
@@ -258,3 +258,9 @@ on b.a_c_no = c.c_no
 where a.t_dist in(1,2) and c.c_dist = 1
 group by c.c_name
 order by a.t_dist, '거래건수' desc;
+
+INSERT INTO `user1` values ('A101', '김유신', '010-1234-1111', 25);
+INSERT INTO `user1` values ('A102', '김춘추', '010-1234-2222', 23);
+INSERT INTO `user1` values ('A103', '장보고', '010-1234-3333', 32);
+INSERT INTO `USER1` (`uid`, `name`, `age`) values ('A104', '강감찬', '45');
+INSERT INTO `USER1` SET `uid`='A105', `name`='이순신', `hp`='010-1234-5555';

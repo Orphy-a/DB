@@ -10,8 +10,7 @@ CREATE TABLE User1 (
     `hp` char(13),
     `age` int
     );
-
-drop table user1;
+    
 
 # 실습 2-2
 INSERT INTO `user1` values ('A101', '김유신', '010-1234-1111', 25);

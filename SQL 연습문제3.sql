@@ -256,8 +256,8 @@ FROM `Student` AS a
 join `register` as b
 on a.stdno = b.regstdno
 left join `lecture` as c
-on b.reglecno = c.lecno;
-group by a.stdname;
+on b.reglecno = c.lecno
+group by a.stdname
 sum(if(`reggrade` = 'F', `leccredit` = 0, `leccredit`)) AS `이수학점`	
 
 #실습 3-30

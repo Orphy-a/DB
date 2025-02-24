@@ -1,9 +1,9 @@
 # 실습 1-1
 create database `shop`;
-create user 'shop`@`%' identified by '1234';
+create user 'shop'@'%' identified by '1234';
 grant all privileges on Shop. * to 'shop'@'%';
 flush privileges;
-
+use shop;
 
 
 
@@ -17,7 +17,7 @@ create table `customer`(
     );
 
 create table `product`(
-	`prodNo` int primary key,
+	`prodNo` int primary key auto_increment,
     `prodName` varchar(10) not null,
     `stock` int default 0,
     `price` int unique default null,
