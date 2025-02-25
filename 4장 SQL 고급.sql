@@ -1,4 +1,4 @@
-# 날짜 : 2025/01/08
+user3`member`# 날짜 : 2025/01/08
 # 이름 : 오재영
 # 내용 : 4장 SQL 고급
 
@@ -8,7 +8,6 @@ CREATE TABLE Member (
     `name` varchar(10) not null,
     `hp` char(13) unique not null,
     `pos` varchar(10) not null,
-    `dep` int,
     `rdate` datetime not null);
 
 
@@ -16,7 +15,7 @@ create table Department(
 	`depNo` int primary key,
     `name` varchar(10) not null,
     `tel` char(12) not null) ;
-    
+    department
 create table Sales(
 	`seq` int primary key auto_increment,
     `uid` varchar(10) not null,
@@ -25,17 +24,17 @@ create table Sales(
     `sale` int);
 
 # 실습 4-2
-insert into `Member` values ('A101', '박혁거세', '010-1234-1001', '부장', 101, NOW());
-insert into `Member` values ('A102', '김유신', '010-1234-1002', '차장', 101, NOW());
-insert into `Member` values ('A103', '김춘추', '010-1234-1003', '사원', 101, NOW());
-insert into `Member` values ('A104', '장보고', '010-1234-1004', '대리', 102, NOW());
-insert into `Member` values ('A105', '강감찬', '010-1234-1005', '과장', 102, NOW());
-insert into `Member` values ('A106', '이성계', '010-1234-1006', '차장', 103, NOW());
-insert into `Member` values ('A107', '정철', '010-1234-1007', '차장', 103, NOW());
-insert into `Member` values ('A108', '이순신', '010-1234-1008', '부장', 104, NOW());
-insert into `Member` values ('A109', '허균', '010-1234-1009', '부장', 104, NOW());
-insert into `Member` values ('A110', '정약용', '010-1234-1010', '사원', 105, NOW());
-insert into `Member` values ('A111', '박지원', '010-1234-1011', '사원', 105, NOW());
+insert into `Member` values ('A101', '박혁거세', '010-1234-1001', '부장', NOW());
+insert into `Member` values ('A102', '김유신', '010-1234-1002', '차장', NOW());
+insert into `Member` values ('A103', '김춘추', '010-1234-1003', '사원', NOW());
+insert into `Member` values ('A104', '장보고', '010-1234-1004', '대리', NOW());
+insert into `Member` values ('A105', '강감찬', '010-1234-1005', '과장', NOW());
+insert into `Member` values ('A106', '이성계', '010-1234-1006', '차장', NOW());
+insert into `Member` values ('A107', '정철', '010-1234-1007', '차장', NOW());
+insert into `Member` values ('A108', '이순신', '010-1234-1008', '부장', NOW());
+insert into `Member` values ('A109', '허균', '010-1234-1009', '부장', NOW());
+insert into `Member` values ('A110', '정약용', '010-1234-1010', '사원', NOW());
+insert into `Member` values ('A111', '박지원', '010-1234-1011', '사원', NOW());
 
 
 
